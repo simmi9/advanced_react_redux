@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+//own virtual dom
+/*const element2 = {type:"h1", 
+                    props:{style: {color: 'blue'},
+                                   children:"hello world from here",
+                                   name:" bhawna"},
+                    key: null,
+                    ref:null,
+                    $$typeof: Symbol.for('react.element')
+                    };
+ReactDOM.render(element2, document.querySelector("#root"));  */
+//ReactDOM.render(React.createElement("h1",{style:{color:'blue'}},"hello world"), document.querySelector("#root"));  
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//creating Component
+
+function SayHi(props) {
+ return <h1 style={{color: "blue"}}> Hello {props.firstname} {props.lastname}</h1>;
+}
+const element = <SayHi firstname="bhawna" lastname="keswani"/>
+
+ReactDOM.render(element, document.querySelector("#root"));
