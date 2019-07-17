@@ -14,12 +14,25 @@ ReactDOM.render(element2, document.querySelector("#root"));  */
 
 
 //creating Component
+    /*
+    function SayHi({ firstName, children: lastName}) { 
+        return (
+        <h1 style={{color: "blue"}}> Hello {firstName} {lastName}</h1>
+        );
+    }*/
+/*ReactDOM.render( <SayHi firstName="bhawna" lastName="keswani"/>, 
+                document.querySelector("#root"));*/
 
-function SayHi({ firstName, children: lastName}) { 
-    return (
-    <h1 style={{color: "blue"}}> Hello {firstName} {lastName}</h1>
-    );
+//Creating Component Class
+class Counter extends React.Component {
+    render(){
+        return (
+            <>
+            <h1> The value is: {this.props.count} </h1>
+            <button>Increment</button>
+            </>
+        )
+    }
 }
-
-ReactDOM.render( <SayHi firstName="bhawna" lastName="keswani"/>, 
+ReactDOM.render( <Counter count={5}/>, 
                 document.querySelector("#root"));
