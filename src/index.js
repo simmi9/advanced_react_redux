@@ -15,9 +15,11 @@ ReactDOM.render(element2, document.querySelector("#root"));  */
 
 //creating Component
 
-function SayHi(props) {
- return <h1 style={{color: "blue"}}> Hello {props.firstname} {props.lastname}</h1>;
+function SayHi({ firstName, children: lastName}) { 
+    return (
+    <h1 style={{color: "blue"}}> Hello {firstName} {lastName}</h1>
+    );
 }
-const element = <SayHi firstname="bhawna" lastname="keswani"/>
 
-ReactDOM.render(element, document.querySelector("#root"));
+ReactDOM.render( <SayHi firstName="bhawna" lastName="keswani"/>, 
+                document.querySelector("#root"));
