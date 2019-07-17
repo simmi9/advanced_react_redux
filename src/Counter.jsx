@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MyButton from './MyButton';  
+import MyButton from './MyButton'; 
+import {Input} from 'reactstrap';    
 //own virtual dom
 /*const element2 = {type:"h1", 
                     props:{style: {color: 'blue'},
@@ -43,11 +44,13 @@ export default class Counter extends React.Component {
         return (  
             <>
             <h1> The value is: {this.state.count} </h1>
-            <input type="text" 
+            <Input type="text" 
                    value={this.state.count}
                    onChange={this.change}
                    readOnly>
-            </input>
+            </Input>
+           
+            <br></br>
             <MyButton increment={1} onClick={this.click}/> 
             <MyButton increment={-10} onClick={this.click}/>
             <MyButton increment={100} onClick={this.click}/>
