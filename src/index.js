@@ -25,10 +25,11 @@ ReactDOM.render(element2, document.querySelector("#root"));  */
 
 //Creating Component Class
 class Counter extends React.Component {
-    myCount = this.props.count;
+    state = { count: this.props.count};
     click = () => {
-        this.myCount += 1;
-        this.forceUpdate(); //used only when react not handling state changed
+       // this.setState((prevState)=>({count: prevState.count + 1}));
+       this.setState({count: this.state.count + 1});  
+      //  this.forceUpdate(); //used only when react not handling state changes
     }
   
     render(){
