@@ -27,7 +27,7 @@ ReactDOM.render(element2, document.querySelector("#root"));  */
 
 //Creating Component Class
 export default class Counter extends React.Component {
-    state = { count: this.props.count };  
+    state = { count: this.props.init };  
     click = (incr) => {
        // this.setState((prevState)=>({count: prevState.count + 1}));
        this.setState({count: this.state.count + incr});  
@@ -48,8 +48,7 @@ export default class Counter extends React.Component {
                    value={this.state.count}
                    onChange={this.change}
                    readOnly>
-            </Input>
-           
+            </Input>    
             <br></br>
             <MyButton increment={1} onClick={this.click}/> 
             <MyButton increment={-10} onClick={this.click}/>
