@@ -27,6 +27,10 @@ ReactDOM.render(element2, document.querySelector("#root"));  */
 
 //Creating Component Class
 export default class Counter extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = { count: Number(window.localStorage.getItem("counter") || props.init)}  
+    }
     state = { count: this.props.init };  
     click = (incr) => {
        // this.setState((prevState)=>({count: prevState.count + 1}));
@@ -41,6 +45,7 @@ export default class Counter extends React.Component {
     }  
     
     render(){  
+        window.localStorage.setItem("counter", this.state.count); 
         return (  
             <>
             <h1> The value is: {this.state.count} </h1>
