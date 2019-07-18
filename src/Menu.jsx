@@ -7,7 +7,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-  } from 'reactstrap';
+  } from 'reactstrap'; 
+ import {NavLink as RRNavLink} from 'react-router-dom';  
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -15,9 +16,9 @@ export default class Menu extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false  
     };
-  }
+  }  
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -27,18 +28,18 @@ export default class Menu extends React.Component {
     return (
       <div>
         <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand tag={RRNavLink} to="/" exact>reactstrap</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="#home">Home</NavLink>
+                <NavLink tag={RRNavLink} to="/" exact>Home </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#about">About</NavLink>
+                <NavLink tag={RRNavLink} to="/about">About</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#counter">Counter</NavLink>
+                <NavLink tag={RRNavLink} to="/counter">Counter</NavLink>  
               </NavItem>
             </Nav>
           </Collapse>
