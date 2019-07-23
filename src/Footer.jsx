@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'reactstrap';
-import ReactDOM from 'react-dom';
 
 
 export default function Footer(props){

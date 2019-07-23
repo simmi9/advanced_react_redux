@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import MyButton from './MyButton'; 
 import {Input} from 'reactstrap';    
 //own virtual dom
