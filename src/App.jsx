@@ -20,7 +20,8 @@ export default class App extends React.Component {
                             <Route path="/" component={Home} exact/>
                             <Route path="/about" component={About} />  
                             <Route path="/counter" render={() => <Counter init={5}/>} />  
-                            <Route path="/employees" component={Employees} />    
+                            <Route path="/employees" component={Employees} /> 
+                            <Route path='/employee/:id' component={EmployeeDetails} />     
                         </Switch>
                         <Footer></Footer>
                     </Container>
