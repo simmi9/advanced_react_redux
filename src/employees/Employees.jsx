@@ -1,6 +1,8 @@
 import React from 'react';  
 import EmpCtx from './employee-context';
 import EmployeeTable from './Employee-Table'; 
+import {Button} from 'reactstrap';  
+import {Link} from 'react-router-dom';  
 
 export default class Employees extends React.Component {
     state = { employees:[], 
@@ -45,8 +47,15 @@ export default class Employees extends React.Component {
                                          }} >
                     <h1> List of Employees</h1>
                     {this.state.loading ?  <p> Loading.. </p> :
-                    <EmployeeTable />
-                }
+                    <>
+                  <EmployeeTable />
+                    <Link to="/employee">  
+                        <Button color="primary">
+                              Create Employee
+                        </Button>
+                     </Link>
+                     </>
+                  }
                 </EmpCtx.Provider>
                 </>
         );

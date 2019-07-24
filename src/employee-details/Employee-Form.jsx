@@ -31,11 +31,17 @@ export default function EmployeeForm (props) {
            {
             props.formErrors.global ? 
             <Alert color="danger">
-              {props.formErrors.global}
+              {props.formErrors.global}  
             </Alert> 
             : "" }
           <Button color="primary" disabled={Object.keys(props.formErrors).length>0}>
             Submit Employee</Button>
+
+            { props.id !== 0 &&  
+          <Button className="ml-3" color="danger"
+                  onClick={props.onDelete}>
+            <FaRegTrashAlt />  
+          </Button>  }  
         </FormGroup>  
 
     </Form >)
