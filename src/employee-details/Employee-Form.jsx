@@ -18,6 +18,13 @@ export default function EmployeeForm (props) {
             fullName="First Name"
             value={props.firstName}
             onChange={props.onChange}
+            formErrors={props.formErrors} />  
+
+        <MyTextBox
+            name="lastName"
+            fullName="Last Name"
+            value={props.lastName}
+            onChange={props.onChange}
             formErrors={props.formErrors} />                    
     </Form >)
 }   
