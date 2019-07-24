@@ -1,11 +1,11 @@
 import React from 'react';
-import EmployeeForm from './employee-form';
+import EmployeeForm from './Employee-Form';  
 
-export default class EmployeeDetails extends React.Component {
+export default class EmployeeDetails extends React.Component {     
     constructor(props){
         super(props);
         this.state = {id: 0, 
-                      firstName:"", 
+                      firstName:"",   
                       lastName:"",   
                       formErrors:{}}
     }
@@ -19,7 +19,7 @@ export default class EmployeeDetails extends React.Component {
     }
 
     getEmployee = (empId) => {
-        return fetch(`/employees/${ empId}`).then(resp => resp.json()) ; 
+        return fetch(`/employees/${ empId}`).then(resp => resp.json()) ;    
       }
 
     saveEmployee = (employee) => {
