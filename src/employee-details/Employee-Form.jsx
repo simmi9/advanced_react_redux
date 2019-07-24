@@ -46,3 +46,12 @@ export default function EmployeeForm (props) {
 
     </Form >)
 }   
+
+EmployeeForm.propTypes = {
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    id: PropTypes.any.isRequired,
+    formErrors: PropTypes.object.isRequired,
+    onSubmit : PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+  };
