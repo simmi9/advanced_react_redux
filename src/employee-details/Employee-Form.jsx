@@ -25,6 +25,18 @@ export default function EmployeeForm (props) {
             fullName="Last Name"
             value={props.lastName}
             onChange={props.onChange}
-            formErrors={props.formErrors} />                    
+            formErrors={props.formErrors} />  
+
+        <FormGroup>
+           {
+            props.formErrors.global ? 
+            <Alert color="danger">
+              {props.formErrors.global}
+            </Alert> 
+            : "" }
+          <Button color="primary" disabled={Object.keys(props.formErrors).length>0}>
+            Submit Employee</Button>
+        </FormGroup>  
+
     </Form >)
 }   
