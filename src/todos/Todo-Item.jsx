@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {ListGroupItem} from 'reactstrap';
 
-const TodoItem = ({ onClick, text }) => (
+const TodoItem = ({ onClick,completed, text }) => (
     <ListGroupItem
-      onClick={onClick}>
+      onClick={onClick}
+      style ={{
+        textDecoration: completed ? 'line-through' : 'none',
+        cursor: 'pointer'
+      }}>  
           {text}
       </ListGroupItem>
 

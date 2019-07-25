@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './reducers/index';
 import { devToolsEnhancer } from 'redux-devtools-extension';
-
+import TodoList from './Todo-List'
 
 const initState = [{  
     id: 1,
@@ -28,6 +28,7 @@ const initState = [{
      render = () => <Provider store={this.store}>
                         <div >
                             <h1>Todos (using Redux)</h1>
+                            <TodoList />
                         </div>
                     </Provider>         
     }
