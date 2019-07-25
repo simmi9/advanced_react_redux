@@ -1,14 +1,15 @@
 import React from 'react';
-import Counter from './Counter';
+import Counter from '../Counter';  
 import './custom.scss';  //less or sass
 import { Container } from 'reactstrap';
-import Home from './home/Home';
-import About from './about/About';
-import Menu from './Menu';
-import Footer from './Footer';
-import Employees from './employees/Employees';  
-import EmployeeDetails from './employee-details/Employee-Details';  
-import Todos from './todos/Todos';  
+import Home from '../home/Home';
+import About from '../about/About';
+import Menu from '../Menu';
+import Footer from '../Footer';
+import Employees from '../employees/Employees';  
+import EmployeeDetails from '../employee-details/Employee-Details';  
+//import Todos from '../todos/todos';     
+import Todos from '../todos-redux/todos';   
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 export default class App extends React.Component {  
@@ -25,7 +26,7 @@ export default class App extends React.Component {
                             <Route path="/employees" component={Employees} />   
                             <Route exact path="/employee" component={EmployeeDetails} />   
                             <Route path='/employee/:id' component={EmployeeDetails} />  
-                            <Route path='/todos' component={Todos} />
+                            <Route path='/todos' component={Todos} /> 
                         </Switch>
                         <Footer></Footer>
                     </Container>

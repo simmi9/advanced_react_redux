@@ -16,4 +16,4 @@ Link.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-export default Link;  
+export default Link;

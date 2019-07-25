@@ -7,4 +7,5 @@ export default function visibilityFilter (state = VisibilityFilters.SHOW_ALL, ac
     default:
       return state;
   }
-};  
+};
+
