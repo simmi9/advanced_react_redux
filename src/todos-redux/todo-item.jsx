@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {ListGroupItem} from 'reactstrap';  
-
+import {FaBackspace} from 'react-icons/fa'
 const TodoItem = ({ onClick,  onDelete, completed, text }) => (
   <ListGroupItem
     onClick={onClick}
@@ -11,7 +11,11 @@ const TodoItem = ({ onClick,  onDelete, completed, text }) => (
     }}
   >
     {text}
-     
+    <button className="float-right text-button" 
+            onClick={onDelete} 
+              >
+      <FaBackspace size="1.5em" /> 
+    </button>  
   </ListGroupItem>
 );
 

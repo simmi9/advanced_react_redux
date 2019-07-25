@@ -48,13 +48,13 @@ export default class Employees extends React.Component {
                     <h1> List of Employees</h1>
                     {this.state.loading ?  <p> Loading.. </p> :
                     <>
-                  <EmployeeTable />
+                  <EmployeeTable />  
                     <Link to="/employee">  
                         <Button color="primary">
                               Create Employee
                         </Button>
                      </Link>
-                     </>
+                     </>  
                   }
                 </EmpCtx.Provider>
                 </>

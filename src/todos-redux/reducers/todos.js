@@ -2,7 +2,8 @@ let nextTodoId = 4;
 
 export default function todos(state = [], action) {
   switch (action.type) {
-  
+    case 'DELETE_TODO':
+      return state.filter(todo => todo.id !== action.id); 
     case 'TOGGLE_TODO':
       return state.map(todo =>
         (todo.id === action.id)

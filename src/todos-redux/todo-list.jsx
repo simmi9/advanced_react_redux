@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import TodoItem from './todo-item';
 import {ListGroup} from 'reactstrap';
   
-const TodoList = ({ todos, onToggleTodo }) => (
+const TodoList = ({ todos, onDeleteTodo, onToggleTodo }) => (
   <ListGroup className="my-4">
     {todos.map(todo =>
       <TodoItem
         key={todo.id}
         {...todo}
         onClick={() => onToggleTodo(todo.id)}
+        onDelete={() =>onDeleteTodo(todo.id)}
       />
     )}
   </ListGroup>  
