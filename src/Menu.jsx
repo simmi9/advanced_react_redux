@@ -44,6 +44,9 @@ export default class Menu extends React.Component {
               <NavItem>
                 <NavLink tag={RRNavLink} to="/employees">Employees</NavLink>  
               </NavItem>
+              <NavItem>
+                <NavLink tag={RRNavLink} to="/todos">Todos</NavLink>  
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
