@@ -24,9 +24,7 @@ class AsyncApp extends Component {
               </div>
           )
       }
-
 }
-
 
 function mapStateToProps(state) {
     const { selectedSubreddit } = state;  
@@ -35,4 +33,4 @@ function mapStateToProps(state) {
     };
   }
   
-  export default connect(mapStateToProps)(AsyncApp);
+export default connect(mapStateToProps)(AsyncApp);

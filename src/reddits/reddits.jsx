@@ -6,9 +6,11 @@ import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineReducers } from 'redux';
 import {
-  SELECT_SUBREDDIT  
+  SELECT_SUBREDDIT,
+  REQUEST_POSTS,
 } from './redux/actions';
 import AsyncApp from './async-app';  
+
 //Reducers
 function selectedSubreddit(state = 'reactjs', action) {
   switch (action.type) {
@@ -19,7 +21,39 @@ function selectedSubreddit(state = 'reactjs', action) {
   }
 }
 
+function posts(
+    state = {
+      isFetching: false,
+      didInvalidate: false,
+      items: []
+    },
+    action
+  ) {
+    switch (action.type) {
+      case REQUEST_POSTS:  
+        return {...state, 
+                isFetching: true,
+                didInvalidate: false
+               };
+      default:
+        return state;
+    }
+  }
+  
+  //handles caching
+  function postsBySubreddit(state = {}, action) {
+    switch (action.type) {  
+      case REQUEST_POSTS:
+        return { ...state, 
+                 [action.subreddit]: posts(state[action.subreddit], action)
+               };
+      default:
+        return state;
+    }
+  }
+
 const rootReducer = combineReducers({  
+  postsBySubreddit,
   selectedSubreddit
 });  
 
