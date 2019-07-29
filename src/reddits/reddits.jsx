@@ -8,7 +8,7 @@ import { combineReducers } from 'redux';
 import {
   SELECT_SUBREDDIT  
 } from './redux/actions';
-
+import AsyncApp from './async-app';  
 //Reducers
 function selectedSubreddit(state = 'reactjs', action) {
   switch (action.type) {
@@ -48,6 +48,7 @@ const Reddits = () => {
 return(
     <Provider store={store}>
         <h1>Reddits</h1>
+        <AsyncApp />
     </Provider>  
   )
 };
