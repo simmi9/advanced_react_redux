@@ -8,7 +8,8 @@ import Menu from '../Menu';
 import Footer from '../Footer';
 import Employees from '../employees/Employees';  
 import EmployeeDetails from '../employee-details/Employee-Details';  
-import Todos from '../todos-redux/todos';      
+import Todos from '../todos-redux/todos';     
+import Reddits from '../reddits/reddits';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 export default class App extends React.Component {  
@@ -26,6 +27,7 @@ export default class App extends React.Component {
                             <Route exact path="/employee" component={EmployeeDetails} />   
                             <Route path='/employee/:id' component={EmployeeDetails} />  
                             <Route path='/todos' component={Todos} /> 
+                            <Route path="/reddits" component={Reddits} />  
                         </Switch>
                         <Footer></Footer>
                     </Container>
