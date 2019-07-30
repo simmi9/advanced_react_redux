@@ -98,8 +98,7 @@ const store = configureStore();
 const Reddits = () => {  
 
 return(
-    <Provider store={store}>
-        <h1>Reddits</h1>
+    <Provider store={store}>  
         <AsyncApp />
     </Provider>  
   )

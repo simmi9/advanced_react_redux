@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
     selectSubreddit,
-    fetchPostsIfNeeded,} from './redux/actions';  
+    fetchPostsIfNeeded,
+    invalidateSubreddit} from './redux/actions';  
 import SelectPicker from './select-picker';
+import Posts from './posts';  
+import {Button} from 'reactstrap';
 
 class AsyncApp extends Component {
 
@@ -24,28 +27,65 @@ class AsyncApp extends Component {
         this.props.dispatch(selectSubreddit(nextSubreddit));
        this.props.dispatch(fetchPostsIfNeeded(nextSubreddit));
       }
-    
-    
-      render() {
-          const {selectedSubreddit} = this.props;
-          return (
-              <div>
-                  <h2> inside selected reddits</h2>
-                 <h3> Initial selection: {this.props.selectedSubreddit}</h3>
-                 <SelectPicker value={selectedSubreddit}
-                               onChange={this.handleChange}
-                               options={['reactjs', 'frontend', 'javascript']}
-                 />
-              </div>
-          )
-      }
-}
 
-function mapStateToProps(state) {
-    const { selectedSubreddit } = state;  
-    return {
-      selectedSubreddit
-    };
-  }
+
+      handleRefreshClick=(e) => {
+        e.preventDefault();  
+        const { dispatch, selectedSubreddit } = this.props;
+        dispatch(invalidateSubreddit(selectedSubreddit));
+        dispatch(fetchPostsIfNeeded(selectedSubreddit));
+      }
+      render() {
+        const { selectedSubreddit, posts, isFetching, lastUpdated } = this.props
+        return (
+          <div>
+            <SelectPicker
+              value={selectedSubreddit}
+              onChange={this.handleChange}
+              options={['reactjs', 'frontend', 'javascript']}
+            />
+
+            <p>
+                 {lastUpdated &&
+                    <span>
+                     Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+                    {' '}
+                    </span>}
+                {!isFetching &&
+                 <Button onClick={this.handleRefreshClick}>
+                     Refresh  
+                 </Button>}
+            </p>  
+
+            {isFetching && posts.length === 0 && <h2>Loading...</h2>}
+            {!isFetching && posts.length === 0 && <h2>Empty.</h2>}
+            {posts.length > 0 &&
+              <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+                <Posts posts={posts} />
+              </div>}
+          </div>
+        )
+      }
+    }  
+    
+    function mapStateToProps(state) {
+      const { selectedSubreddit, postsBySubreddit } = state;
+      const {
+        isFetching,
+        lastUpdated,
+        items: posts
+      } = postsBySubreddit[selectedSubreddit] || {
+        isFetching: true,
+        items: []
+      };
+      return {
+        selectedSubreddit,
+        posts,
+        isFetching,
+        lastUpdated,
+        postsBySubreddit
+      };
+    }
+
   
 export default connect(mapStateToProps)(AsyncApp);

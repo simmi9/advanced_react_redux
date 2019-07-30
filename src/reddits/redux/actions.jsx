@@ -1,4 +1,3 @@
-import { takeLatest, put, call} from 'redux-saga/effects';
 
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT';  
 export const REQUEST_POSTS = 'REQUEST_POSTS'; 
@@ -36,16 +35,15 @@ export function requestPosts(subreddit) {
   };
 
 
-function fetchPosts(subreddit) {  
-
+  function fetchPosts(subreddit) {
     return async (dispatch) => {
      dispatch(requestPosts(subreddit));
       try {
         const response = await fetch(`https://www.reddit.com/r/${subreddit}.json`);
-        const json = await response.json();
+      const json = await response.json();
         dispatch(receivePosts(subreddit, json));
       }
-      catch (e)
+      catch (e)  
       {
         //dispatch({ type: 'error', name: 'error', value: e.message });
      }
